@@ -267,13 +267,15 @@ int main(int argc, char** argv) {
 	cv::Mat img = cv::imread(imgname, -1);
 	CHECK(!img.empty()) << "Unable to decode image ";
 	total++;
+#if 0
 	std::vector<Prediction> predictions = classifier.Classify(img, 4);
 	for (size_t i = 0; i < predictions.size(); ++i) {
 		Prediction p = predictions[i];
 		std::cout << std::fixed << std::setprecision(4) << p.second << " - \""<< p.first << "\"" << std::endl;
 	}
 	getchar();
-#if 0
+#endif
+#if 1
 	std::vector<Prediction> predictions = classifier.Classify(img, 1);
 	Prediction pred = predictions[0];
 	pred_label = atoi(pred.first.c_str());
